@@ -1,0 +1,45 @@
+-- criando banco de dados
+create database uc1088adb;
+-- ativando banco
+use uc1088adb;
+-- criando tabela
+create table alunos(
+id int not null primary key auto_increment,
+nome varchar (45) not null,
+email varchar (45) not null unique,
+senha varchar (32) not null,
+ativo bit default 1
+);
+-- inserindo dados/alunos na tabela
+insert alunos (nome, email, senha, ativo)
+
+values ('Claudio Mares','claudinho@yahoo.com.br',md5('456123'),default),
+('Ademir','ademirbarros@gmail.com',md5('789456'),default),
+('Luis Claudio','luizinho@hotmail.com',md5('52169'),default);
+-- selecionando a tabela para visualizar a mesma
+select * from alunos;
+-- atualizando dados de usuario
+update alunos set nome = 'Welligton Gente boa demais' where id = 5;
+update alunos set ativo = 0  where id = 1;
+
+
+-- tabela Professor
+
+create table professor(
+id int not null primary key auto_increment,
+nome varchar (45),
+cpf char(11) unique,
+email varchar (45) unique,
+telefone varchar (15)
+);
+
+insert professor (nome, cpf, email, telefone)
+values ('Wellington Vieira','78545863215','wellzika@gmail.com','24168589'),
+('Douglas Mariano','54612398571','dodomari@hotmail.com','25631495'),
+('Stefano Habyak','12365485236','stehabyak@yahoo.com.br','26415566');
+
+select * from professor;
+
+update professor set nome = 'Welligton Gente boa demais' where id = 5;
+
+update professor set email = 'vagaoSouza@gmail.com' where id = 5;
